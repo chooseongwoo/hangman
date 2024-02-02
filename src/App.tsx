@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./pages/Home/index";
+import NotFound from "./pages/NotFound/index"
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element />
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
