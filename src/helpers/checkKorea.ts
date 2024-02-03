@@ -1,4 +1,6 @@
-export const containsKoreanOrAlphabet = (str: string) => {
-  const koreanOrAlphabetRegex = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
-  return koreanOrAlphabetRegex.test(str);
+export const containsKoreanOrSpecialOrNumber = (str: string) => {
+  const koreanOrSpecialOrNumberRegex =
+    /[ㄱ-ㅎㅏ-ㅣ가-힣\d\s!@#$%^&*(),.?":{}|<>]/;
+
+  return koreanOrSpecialOrNumberRegex.test(str);
 };
