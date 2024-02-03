@@ -1,7 +1,11 @@
 import React from "react";
 import * as S from "./style";
 
-const KeyBoard = () => {
+type KeyBoardProps = {
+  setClickedAlphabet: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const KeyBoard = ({ setClickedAlphabet }: KeyBoardProps) => {
   const clicked = false;
   const keys = [
     "A",
@@ -35,7 +39,17 @@ const KeyBoard = () => {
   return (
     <S.Layout>
       {keys.map((item, index) => {
-        return <S.Key value={item} disabled={clicked} >{item}</S.Key>;
+        return (
+          <S.Key
+            value={item}
+            disabled={clicked}
+            onClick={() => {
+              setClickedAlphabet(item);
+            }}
+          >
+            {item}
+          </S.Key>
+        );
       })}
     </S.Layout>
   );
