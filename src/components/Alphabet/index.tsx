@@ -3,11 +3,11 @@ import * as S from "./style";
 
 type AlphabetProps = {
   letter: string[];
-  clickedAlphabet: string;
+  clickedAlphabets: string[];
 };
 
-const Alphabet = ({ letter, clickedAlphabet }: AlphabetProps) => {
-  const gameEnd = true;
+const Alphabet = ({ letter, clickedAlphabets }: AlphabetProps) => {
+  const gameEnd = false;
 
   return (
     <S.Layout>
@@ -15,7 +15,7 @@ const Alphabet = ({ letter, clickedAlphabet }: AlphabetProps) => {
         return (
           <S.Letter>
             <S.Alphabet key={item} gameEnd={gameEnd}>
-              {item === clickedAlphabet ? item : ""}
+              {clickedAlphabets.includes(item) ? item : ""}
             </S.Alphabet>
           </S.Letter>
         );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from "./style";
 
 type KeyBoardProps = {
-  setClickedAlphabet: React.Dispatch<React.SetStateAction<string>>;
+  setClickedAlphabet: (clickedAlphabet: string) => void;
 };
 
 const KeyBoard = ({ setClickedAlphabet }: KeyBoardProps) => {
