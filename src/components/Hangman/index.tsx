@@ -1,10 +1,11 @@
-// HangMan.tsx
 import React, { useState } from "react";
 import * as S from "./style";
 
-const HangMan: React.FC = () => {
-  const [mistakes, setMistakes] = useState<number>(0);
+type HangManProps = {
+  mistakes: number;
+};
 
+const HangMan = ({ mistakes }: HangManProps) => {
   const drawHangMan = () => {
     const parts = [
       <S.Rope />,
@@ -16,7 +17,7 @@ const HangMan: React.FC = () => {
       <S.RightLeg />,
       <S.LeftFoot />,
       <S.RightFoot />,
-      <S.Eye>X  X</S.Eye>,
+      <S.Eye>X X</S.Eye>,
       <S.Mouth />,
     ];
 

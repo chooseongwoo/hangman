@@ -9,6 +9,7 @@ import HangMan from "../../components/Hangman";
 const Home = () => {
   const [letter, setLetter] = useState("");
   const [clickedAlphaBet, setClickedAlphabet] = useState("");
+  const [mistakes, setMistakes] = useState<number>(0);
   const isMounted = useRef(true);
 
   useEffect(() => {
@@ -23,12 +24,10 @@ const Home = () => {
     }
   }, []);
 
-  console.log(clickedAlphaBet);
-
   return (
     <S.Layout>
-      <HangMan />
-      <Alphabet letter={letter.split("")} />
+      <HangMan mistakes={mistakes} />
+      <Alphabet letter={letter.split("")} clickedAlphabet={clickedAlphaBet} />
       <KeyBoard setClickedAlphabet={setClickedAlphabet} />
     </S.Layout>
   );

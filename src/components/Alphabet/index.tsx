@@ -3,9 +3,10 @@ import * as S from "./style";
 
 type AlphabetProps = {
   letter: string[];
+  clickedAlphabet: string;
 };
 
-const Alphabet = ({ letter }: AlphabetProps) => {
+const Alphabet = ({ letter, clickedAlphabet }: AlphabetProps) => {
   const gameEnd = true;
 
   return (
@@ -13,7 +14,9 @@ const Alphabet = ({ letter }: AlphabetProps) => {
       {letter.map((item, index) => {
         return (
           <S.Letter>
-            <S.Alphabet gameEnd={gameEnd}>{item}</S.Alphabet>
+            <S.Alphabet key={item} gameEnd={gameEnd}>
+              {item === clickedAlphabet ? item : ""}
+            </S.Alphabet>
           </S.Letter>
         );
       })}

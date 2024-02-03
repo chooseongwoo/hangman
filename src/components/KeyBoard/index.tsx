@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 
 type KeyBoardProps = {
@@ -6,7 +6,17 @@ type KeyBoardProps = {
 };
 
 const KeyBoard = ({ setClickedAlphabet }: KeyBoardProps) => {
-  const clicked = false;
+  const [disabledKeys, setDisabledKeys] = useState(Array(26).fill(false));
+
+  const handleKeyClick = (item: string, index: number) => {
+    setClickedAlphabet(item);
+    setDisabledKeys((prev) => {
+      const newDisabledKeys = [...prev];
+      newDisabledKeys[index] = true;
+      return newDisabledKeys;
+    });
+  };
+
   const keys = [
     "A",
     "B",
@@ -42,10 +52,8 @@ const KeyBoard = ({ setClickedAlphabet }: KeyBoardProps) => {
         return (
           <S.Key
             value={item}
-            disabled={clicked}
-            onClick={() => {
-              setClickedAlphabet(item);
-            }}
+            disabled={disabledKeys[index]}
+            onClick={() => handleKeyClick(item, index)}
           >
             {item}
           </S.Key>
