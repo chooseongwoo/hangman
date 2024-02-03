@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as S from "./style";
-import { checkKorea } from "../../helpers/checkKorea";
+import { containsKoreanOrAlphabet } from "../../helpers/checkKorea";
 
 import KeyBoard from "../../components/KeyBoard";
 import Alphabet from "../../components/Alphabet";
@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     if (isMounted.current) {
       let input = prompt("영어 단어를 입력하세요.");
-      if (!input || checkKorea(input)) {
+      if (!input || containsKoreanOrAlphabet(input)) {
         window.location.reload();
       }
       console.log(input);
