@@ -1,8 +1,11 @@
 import React from "react";
 import * as S from "./style";
 
-const Alphabet = () => {
-  const letter = ["H", "E", "L", "L", "O"];
+type AlphabetProps = {
+  letter: string[];
+};
+
+const Alphabet = ({ letter }: AlphabetProps) => {
   const gameEnd = true;
 
   return (

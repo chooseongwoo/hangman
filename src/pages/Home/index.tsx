@@ -23,10 +23,12 @@ const Home = () => {
     }
   }, []);
 
+  console.log(clickedAlphaBet);
+
   return (
     <S.Layout>
       <HangMan />
-      <Alphabet />
+      <Alphabet letter={letter.split("")} />
       <KeyBoard setClickedAlphabet={setClickedAlphabet} />
     </S.Layout>
   );
