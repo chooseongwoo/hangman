@@ -29,13 +29,21 @@ const Home = () => {
     }
   }, []);
 
+  useEffect(() => {
+    clickedAlphabets.forEach((item) => {
+      if (!letter.includes(item)) {
+        setMistakes(mistakes + 1);
+      }
+    });
+  }, [clickedAlphabets]);
+
   const handleAlphabetClick = (clickedAlphabet: string) => {
-    setClickedAlphabets(prev => [...prev, clickedAlphabet]);
+    setClickedAlphabets((prev) => [...prev, clickedAlphabet]);
   };
 
   return (
     <S.Layout>
-      <HangMan mistakes={mistakes} />
+      <HangMan mistakes={mistakes} letter={letter} />
       <Alphabet letter={letter.split("")} clickedAlphabets={clickedAlphabets} />
       <KeyBoard setClickedAlphabet={handleAlphabetClick} />
     </S.Layout>

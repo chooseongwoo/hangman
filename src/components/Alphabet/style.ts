@@ -12,8 +12,8 @@ export const Letter = styled.div`
   border-bottom: solid 3px black;
 `;
 
-export const Alphabet = styled.p<{ gameEnd: boolean }>`
-  color: ${(props) => (props.gameEnd ? "red" : "black")};
+export const Alphabet = styled.p`
+  color: black;
   text-align: center;
   font-size: 30px;
 `;

@@ -7,14 +7,13 @@ type AlphabetProps = {
 };
 
 const Alphabet = ({ letter, clickedAlphabets }: AlphabetProps) => {
-  const gameEnd = false;
 
   return (
     <S.Layout>
       {letter.map((item, index) => {
         return (
           <S.Letter>
-            <S.Alphabet key={item} gameEnd={gameEnd}>
+            <S.Alphabet key={item}>
               {clickedAlphabets.includes(item) ? item : ""}
             </S.Alphabet>
           </S.Letter>

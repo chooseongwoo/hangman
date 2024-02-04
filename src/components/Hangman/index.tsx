@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 
 type HangManProps = {
   mistakes: number;
+  letter: string;
 };
 
-const HangMan = ({ mistakes }: HangManProps) => {
+const HangMan = ({ mistakes, letter }: HangManProps) => {
+  useEffect(() => {
+    if (mistakes == 11) {
+      alert(`정답은 ${letter}이었습니다.`);
+      window.location.reload();
+      return;
+    }
+  }, [mistakes]);
+
   const drawHangMan = () => {
+    console.log(mistakes);
     const parts = [
       <S.Rope />,
       <S.Head />,
