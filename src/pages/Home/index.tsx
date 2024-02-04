@@ -29,9 +29,12 @@ const Home = () => {
     }
   }, []);
 
+  console.log(clickedAlphabets);
+  console.log(letter);
+
   useEffect(() => {
     clickedAlphabets.forEach((item) => {
-      if (!letter.includes(item)) {
+      if (!letter.split("").includes(item)) {
         setMistakes(mistakes + 1);
       }
     });
