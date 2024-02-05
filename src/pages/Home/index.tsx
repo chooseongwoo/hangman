@@ -29,9 +29,6 @@ const Home = () => {
     }
   }, []);
 
-  console.log(clickedAlphabets);
-  console.log(letter);
-
   useEffect(() => {
     clickedAlphabets.forEach((item) => {
       if (!letter.split("").includes(item)) {
@@ -39,6 +36,7 @@ const Home = () => {
       }
     });
   }, [clickedAlphabets]);
+
 
   const handleAlphabetClick = (clickedAlphabet: string) => {
     setClickedAlphabets((prev) => [...prev, clickedAlphabet]);

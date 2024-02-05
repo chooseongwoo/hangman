@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./style";
 
 type AlphabetProps = {
@@ -7,6 +7,17 @@ type AlphabetProps = {
 };
 
 const Alphabet = ({ letter, clickedAlphabets }: AlphabetProps) => {
+  // 승리 로직
+  useEffect(() => {
+    if (
+      letter &&
+      letter.length > 0 &&
+      letter.every((item) => clickedAlphabets.includes(item))
+    ) {
+      alert("게임에서 승리하였습니다.");
+      window.location.reload();
+    }
+  }, [letter, clickedAlphabets]);
 
   return (
     <S.Layout>

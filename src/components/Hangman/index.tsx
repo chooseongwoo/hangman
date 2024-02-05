@@ -7,9 +7,10 @@ type HangManProps = {
 };
 
 const HangMan = ({ mistakes, letter }: HangManProps) => {
+  // 패배 로직
   useEffect(() => {
     if (mistakes == 11) {
-      alert(`정답은 ${letter}이었습니다.`);
+      alert(`게임에서 패배하였습니다. 정답은 ${letter}이었습니다.`);
       window.location.reload();
       return;
     }
