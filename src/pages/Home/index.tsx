@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import * as S from "./style";
+import * as _ from "./style";
 import { containsKoreanOrSpecialOrNumber } from "../../helpers/checkKorea";
 
 import KeyBoard from "../../components/KeyBoard";
@@ -43,11 +43,11 @@ const Home = () => {
   };
 
   return (
-    <S.Layout>
+    <_.Layout>
       <HangMan mistakes={mistakes} letter={letter} />
       <Alphabet letter={letter.split("")} clickedAlphabets={clickedAlphabets} />
       <KeyBoard setClickedAlphabet={handleAlphabetClick} />
-    </S.Layout>
+    </_.Layout>
   );
 };
 
